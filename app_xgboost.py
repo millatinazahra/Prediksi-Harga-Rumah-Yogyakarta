@@ -29,6 +29,9 @@ data_input = pd.DataFrame([{
     "kabupaten_kota": lokasi.split(", ")[-1],
 }])[meta["fitur"]]
 
+for col in ["kamar_tidur", "kamar_mandi", "carport", "luas_tanah", "luas_bangunan"]:
+    if col in data_input.columns:
+        data_input[col] = data_input[col].astype(int)
 st.subheader("Parameter Input Pengguna:")
 st.write(data_input)
 
